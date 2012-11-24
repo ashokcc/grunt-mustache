@@ -1,0 +1,5 @@
+{
+  "name": "grunt-mustache",
+  "version": "0.1.0",
+  "main": "tasks/mustache.js",
+}

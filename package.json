@@ -1,0 +1,37 @@
+{
+  "name": "build-mustache",
+  "description": "Build static HTML from mustache templates, for documentation, gh-pages and simple projects.",
+  "version": "0.3.0",
+  "homepage": "https://github.com/jonschlinkert/build-mustache",
+  "author": {
+    "name": "Jon Schlinkert",
+    "email": "github@sellside.com",
+    "url": "https://github.com/jonschlinkert"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonschlinkert/build-mustache.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/build-mustache/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jonschlinkert/build-mustache/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/build-mustache",
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.17",
+    "grunt-contrib": "",
+    "hogan": ""
+  },
+  "keywords": ["gruntplugin", "mustache", "static html", "templates", "build", "compile"]
+}
