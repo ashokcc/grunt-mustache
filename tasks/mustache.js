@@ -69,14 +69,6 @@ module.exports = function(grunt) {
       return
     };
 
-    // options.componentPartials = {};
-    // componentsFiles.forEach(function(filepath) {
-    //   var filename = _.first(filepath.match(/[^\\\/:*?"<>|\r\n]+$/i)).replace(/\.mustache$/, '')
-
-    //   options.componentsFiles[filename] = hogan.compile(filepath, {});
-    // });
-
-
     srcFiles.forEach(function(filepath) {
       var filename = _.first(filepath.match(/[^\\\/:*?"<>|\r\n]+$/i)).replace(/\.mustache$/, '')
 
@@ -113,17 +105,6 @@ module.exports = function(grunt) {
       site: options.title
     });
     try {
-
-      // options.componentPartials.sectionTags = [{o: '_i',c: 'i'}];
-      /****
-      componentPartials = {
-        assets: assets,
-        animations: animations,
-        banners: banners
-      };
-      ****/
-      // page = hogan.compile(page, options.componentPartials);
-
       page = hogan.compile(page, {
         sectionTags: [{
           o: '_i',
