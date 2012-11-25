@@ -1,7 +1,7 @@
 {
   "name": "build-mustache",
   "description": "Build static HTML from mustache templates, for documentation, gh-pages and simple projects.",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "homepage": "https://github.com/jonschlinkert/build-mustache",
   "author": {
     "name": "Jon Schlinkert",
