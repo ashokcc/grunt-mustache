@@ -15,7 +15,10 @@ module.exports = function(grunt) {
         options: {
           production: false,                            // Production filter renders markup inside {{#production}} tags
           title: 'Grunt-Mustache',                      // Customize "Title" for your project
-          layout: 'examples/mustache/layout.mustache'   // Wrap layout around docs pages and convert to HTML
+          layout: 'examples/mustache/layout.mustache',  // Wrap layout around docs pages and convert to HTML
+          paths: {
+            partials: 'examples/mustache/partials/*.mustache' // Mustache partials that may be used in pages
+          }
         }
       }
     },

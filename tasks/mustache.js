@@ -43,7 +43,9 @@ module.exports = function(grunt) {
         production: false,
         docs: false,
         title: 'Awesome Site',
-        layout: 'docs/templates/layout.mustache'
+        layout: 'docs/templates/layout.mustache',
+        paths: {},
+        partials: {}
       },
       options = _.extend(defaults, this.data.options || {});
 
@@ -55,6 +57,21 @@ module.exports = function(grunt) {
 
     var done     = this.async();
     var srcFiles = file.expandFiles(src);
+
+    if(options.paths.partials) {
+
+      var partials = grunt.file.expandFiles(options.paths.partials);
+      log.writeln('Compiling Partials...');
+      partials.forEach(function(filepath) {
+        var filename = _.first(filepath.match(/[^\\\/:*?"<>|\r\n]+$/i)).replace(/\.mustache$/, '');
+        log.writeln(filename.magenta);
+
+        var partial = fs.readFileSync(filepath, 'utf8');
+        options.partials[filename] = hogan.compile(partial);
+
+      });
+      log.writeln();
+    }
 
     try {
       options.layout = fs.readFileSync(options.layout, 'utf8')
@@ -111,9 +128,9 @@ module.exports = function(grunt) {
           c: 'i'
         }]
       })
-      page = layout.render(context, {
-        body: page
-      })
+
+      options.partials.body = page;
+      page = layout.render(context, options.partials)
       callback(null, page)
     } catch(err) {
       callback(err)
