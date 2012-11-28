@@ -67,8 +67,12 @@ module.exports = function(grunt) {
         log.writeln(filename.magenta);
 
         var partial = fs.readFileSync(filepath, 'utf8');
-        options.partials[filename] = hogan.compile(partial);
-
+        options.partials[filename] = hogan.compile(partial, {
+          sectionTags: [{
+            o: '_i',
+            c: 'i'
+          }]
+        })
       });
       log.writeln();
     }
@@ -110,7 +114,6 @@ module.exports = function(grunt) {
         html                = null,
         layout              = options.layout,
         context             = {};
-
         context[filename]   = 'active';
         context._i          = true;
         context.production  = options.production;
