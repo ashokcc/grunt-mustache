@@ -7,7 +7,18 @@
 <div class="container">
 
 
-  {{> alert }}
+  {{#alert.default}}
+    {{> alert }}
+  {{/alert.default}}
+
+  {{#alert.error}}
+    {{> alert }}
+  {{/alert.error}}
+
+  {{#alert.success}}
+    {{> alert }}
+  {{/alert.success}}
+
   {{> button }}
   {{> modal }}
 

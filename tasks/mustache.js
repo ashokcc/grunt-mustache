@@ -45,7 +45,8 @@ module.exports = function(grunt) {
         title: 'Awesome Site',
         layout: 'docs/templates/layout.mustache',
         paths: {},
-        partials: {}
+        partials: {},
+        partialsData: {}
       },
       options = _.extend(defaults, this.data.options || {});
 
@@ -62,9 +63,13 @@ module.exports = function(grunt) {
 
       var partials = grunt.file.expandFiles(options.paths.partials);
       log.writeln('Compiling Partials...');
+      var filenameRegex = /[^\\\/:*?"<>|\r\n]+$/i;
+
       partials.forEach(function(filepath) {
-        var filename = _.first(filepath.match(/[^\\\/:*?"<>|\r\n]+$/i)).replace(/\.mustache$/, '');
+        var filename = _.first(filepath.match(filenameRegex)).replace(/\.mustache$/, '');
         log.writeln(filename.magenta);
+
+        var dataFilepath = filepath.replace(/\.mustache$/, '.json');
 
         var partial = fs.readFileSync(filepath, 'utf8');
         options.partials[filename] = hogan.compile(partial, {
@@ -73,6 +78,12 @@ module.exports = function(grunt) {
             c: 'i'
           }]
         })
+
+        // if a data file exists, read in the data
+        if(fs.existsSync(dataFilepath)) {
+          options.partialsData[filename] = grunt.file.readJSON(dataFilepath);
+        }
+
       });
       log.writeln();
     }
@@ -124,6 +135,7 @@ module.exports = function(grunt) {
       page: _(filename).humanize().replace('css', 'CSS'),
       site: options.title
     });
+
     try {
       page = hogan.compile(page, {
         sectionTags: [{
@@ -132,6 +144,7 @@ module.exports = function(grunt) {
         }]
       })
 
+      context = _.extend(context, options.partialsData);
       options.partials.body = page;
       page = layout.render(context, options.partials)
       callback(null, page)

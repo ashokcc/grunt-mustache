@@ -1,0 +1,17 @@
+{
+  "default": {
+    "modifier": "alert-warning",
+    "alertType": "Warning!",
+    "message": "Best check yo self, you're not looking too good.!"
+  },
+  "error": {
+    "modifier": "alert-error",
+    "alertType": "Error!!!",
+    "message": "You did something horribily wrong!!!"
+  },
+  "success": {
+    "modifier": "alert-success",
+    "alertyType": "Success!!!",
+    "message": "The record has been successfully saved..."
+  }
+}

@@ -81,23 +81,46 @@
 <div class="container">
 
 
-  <!-- partial -->
-  <div class="container">
-    <h1>alerts</h1>
-  
-    <!-- ko foreach: alerts -->
-    <div class="row-fluid">
-      <div class="alert" data-bind="attr: { class: alertClass }">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong data-bind="text: alertType">Warning!</strong>
-        <!-- ko text: message -->
-        Best check yo self, you're not looking too good.
-        <!-- /ko -->
+    <!-- partial -->
+    <div class="container">
+      <h1>alerts</h1>
+    
+      <div class="row-fluid">
+        <div class="alert alert-warning">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Warning!</strong>
+          Best check yo self, you&#39;re not looking too good.!
+        </div>
       </div>
-    </div>
-    <!-- /ko -->
-  
-  </div><!-- /container -->  <!-- partial -->
+    
+    </div><!-- /container -->
+    <!-- partial -->
+    <div class="container">
+      <h1>alerts</h1>
+    
+      <div class="row-fluid">
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Error!!!</strong>
+          You did something horribily wrong!!!
+        </div>
+      </div>
+    
+    </div><!-- /container -->
+    <!-- partial -->
+    <div class="container">
+      <h1>alerts</h1>
+    
+      <div class="row-fluid">
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong></strong>
+          The record has been successfully saved...
+        </div>
+      </div>
+    
+    </div><!-- /container -->
+  <!-- partial -->
   <div class="container">
     <h1>Buttons</h1>
   

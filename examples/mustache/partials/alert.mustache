@@ -2,16 +2,12 @@
 <div class="container">
   <h1>alerts</h1>
 
-  <!-- ko foreach: alerts -->
   <div class="row-fluid">
-    <div class="alert" data-bind="attr: { class: alertClass }">
+    <div class="alert {{modifier}}">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <strong data-bind="text: alertType">Warning!</strong>
-      <!-- ko text: message -->
-      Best check yo self, you're not looking too good.
-      <!-- /ko -->
+      <strong>{{alertType}}</strong>
+      {{message}}
     </div>
   </div>
-  <!-- /ko -->
 
 </div><!-- /container -->
